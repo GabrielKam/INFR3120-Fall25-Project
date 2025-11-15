@@ -2,7 +2,14 @@ import express from 'express';
 const app = express();
 const port = 4000;
 import route from './routes/routes.js';
+import path from 'path';
 
+// static files
+app.use(express.static(path.join(process.cwd(), 'public')))
+
+// setup for ejs 
+app.set('view engine ', 'ejs')
+app.set('views', './views')
 //routes
 app.use('/', route);
 

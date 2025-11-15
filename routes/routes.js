@@ -1,8 +1,7 @@
 import express from 'express';
 const route = express.Router();
+import { homeController } from '../controllers/homeController.js';
 
-route.get('/', (req,res)=>{
-    res.send("router")
-})
+route.get('/', homeController);
 
 export default route;
