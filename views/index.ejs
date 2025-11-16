@@ -1,40 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head>
-  <body>
-    <!-- navbar-->
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Create</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Read</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Update</a>
-        </li>
-        <li class="nav-item">   
-            <a class="nav-link active" aria-current="page" href="#">Delete</a>
-          </a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<%- include ('./base/header.ejs')%>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form action="">
+                <div class="field my-4">
+                    <label for="" class="form-label">name</label>
+                    <input type="text" class ="form-control" placeholder="enter your name bro">
+                </div>
+
+                <div class="field my-4">
+                    <label for="" class="form-label">city</label>
+                    <input type="text" class ="form-control" placeholder="enter your city?">
+                </div>
+                
+                <div class="field my-4">
+                    <label for="" class="form-label">email</label>
+                    <input type="text" class ="form-control" placeholder="enter email">
+                </div>
+
+                <div class="field my-4">
+                    <label for="" class="form-label">Contact</label>
+                    <input type="text" class ="form-control" placeholder="enter your Phone number">
+                </div>
+
+                <input type="submit" value="create" class="btn btn-warning">
+            </form>
+        </div>
+        <div class="col"></div>
     </div>
-  </div>
-</nav>
-    <!--nav ends-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>
+<%- include ('./base/footer.ejs')%>
