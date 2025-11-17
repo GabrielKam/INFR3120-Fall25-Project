@@ -1,5 +1,13 @@
-const homeController = (req,res)=>{
+import StudentModel from "../models/schema.js";
+
+const homeController =async(req,res)=>{
     res.render('index.ejs')
 };
 
-export {homeController}
+
+//create
+const createController = async(req,res)=>{
+    console.log(req.body)
+    res.render('index.ejs')
+}
+export {homeController, createController}

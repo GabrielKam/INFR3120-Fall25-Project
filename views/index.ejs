@@ -1,11 +1,15 @@
-<%- include ('./base/header.ejs')%>
-
+<%- include ('./partials/header.ejs')%>
+<div class="container">
+    <div class="alert">
+        <h4 class="text-center">Create a New Account</h4>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <form action="">
+            <form action="" method ="POST">
                 <div class="field my-4">
                     <label for="" class="form-label">name</label>
                     <input type="text" class ="form-control" placeholder="enter your name bro">
@@ -22,7 +26,7 @@
                 </div>
 
                 <div class="field my-4">
-                    <label for="" class="form-label">Contact</label>
+                    <label for="" class="form-label">contact</label>
                     <input type="text" class ="form-control" placeholder="enter your Phone number">
                 </div>
 
@@ -32,4 +36,4 @@
         <div class="col"></div>
     </div>
 </div>
-<%- include ('./base/footer.ejs')%>
+<%- include ('./partials/footer.ejs')%>
