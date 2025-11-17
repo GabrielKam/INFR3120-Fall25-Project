@@ -1,0 +1,37 @@
+<%- include ('./partials/header.ejs')%>
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+
+            <h2 class="text-center mb-4"><%= title %> Student Records</h2>
+
+            <table class="table table-bordered table-striped table-hover">
+
+                <!-- Header Row -->
+                <tr class="d-flex">
+                    <th class="text-center col-3">Name</th>
+                    <th class="text-center col-3">Email</th>
+                    <th class="text-center col-2">City</th>
+                    <th class="text-center col-2">Phone</th>
+                </tr>
+
+                <% for (let i = 0; i < studentData.length; i++) { %>
+                    <tr class="d-flex">
+                        <td class="text-center col-3"><%= studentData[i].name %></td>
+                        <td class="text-center col-3"><%= studentData[i].email %></td>
+                        <td class="text-center col-2"><%= studentData[i].city %></td>
+                        <td class="text-center col-2"><%= studentData[i].contact %></td>
+                    </tr>
+                <% } %>
+
+            </table>
+
+        </div>
+    </div>
+</main>
+
+<br>
+<br>
+
+<%- include ('./partials/footer.ejs')%>
