@@ -1,0 +1,43 @@
+<%- include('./base/header.ejs') %>
+
+<main class="container my-5">
+
+    <h2 class="text-center mb-4">Delete Student Record</h2>
+
+    <form action="">
+        <div class="my-3">
+            <label for="name" class="form-label">Student Name</label>
+            <input type="text" id="nameInput" class="form-control" placeholder="Enter the student's name">
+        </div>
+
+        <div class="my-3">
+            <label for="studentID" class="form-label">Student ID</label>
+            <input type="text" class="form-control" placeholder="Enter the student's ID">
+        </div>
+
+        <p id="confirmText" class="mt-4 text-danger fw-bold" style="display:none;"></p> <!-- warning message -->
+
+        <input type="submit" value="Delete" class="btn btn-danger mt-3 w-100">
+    </form>
+    
+
+</main>
+
+<!--Will Update to Say name/id doesn't exist and student deleted later-->
+<script>
+    const nameInput = document.getElementById("nameInput");
+    const confirmText = document.getElementById("confirmText");
+
+    nameInput.addEventListener("input", () => {
+        const name = nameInput.value.trim();
+
+        if (name.length > 0) {
+            confirmText.style.display = "block";
+            confirmText.textContent = `Are you sure you want to delete "${name}"?`;
+        } else {
+            confirmText.style.display = "none";
+        }
+    });
+</script>
+
+<%- include('./base/footer.ejs') %>

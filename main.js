@@ -8,7 +8,7 @@ import path from 'path';
 app.use(express.static(path.join(process.cwd(), 'public')))
 
 // setup for ejs 
-app.set('view engine ', 'ejs')
+app.set('view engine', 'ejs')
 app.set('views', './views')
 //routes
 app.use('/', route);
