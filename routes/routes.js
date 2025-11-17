@@ -1,8 +1,9 @@
 import express from 'express';
 const route = express.Router();
-import { homeController } from '../controllers/homeController.js';
+import { homeController, createController } from '../controllers/homeController.js';
 
 route.get('/', homeController);
+route.post('/', createController);
 
 route.get('/delete', function(req, res, next) {
   res.render('delete', { title: 'Delete',displayName: req.user?req.user.displayName:"" });

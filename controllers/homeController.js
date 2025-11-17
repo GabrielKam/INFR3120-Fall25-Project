@@ -1,5 +1,11 @@
-const homeController = (req, res, next) =>{
-  res.render('index', { title: 'Create',displayName: req.user?req.user.displayName:"" });
+const homeController = (req,res)=>{
+    res.render('index.ejs')
 };
 
-export {homeController}
+
+//create
+const createController = async(req,res)=>{
+    console.log(req.body)
+    res.render('index.ejs')
+}
+export {homeController, createController}
