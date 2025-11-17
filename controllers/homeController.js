@@ -1,6 +1,4 @@
-import StudentModel from "../models/schema.js";
-
-const homeController =async(req,res)=>{
+const homeController = (req,res)=>{
     res.render('index.ejs')
 };
 
