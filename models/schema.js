@@ -2,19 +2,19 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema({
     'name':{
         type:String,
-        require:true
+        required:true
     },
     'city':{
         type:String,
-        require:true
+        required:true
     },
     'email':{
         type:String,
-        require:true
+        required:true
     },
     'contact':{
         type:String,
-        require:true
+        required:true
     }
 });
 

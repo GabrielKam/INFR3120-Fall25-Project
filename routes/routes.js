@@ -1,12 +1,16 @@
 import express from 'express';
-const route = express.Router();
+import readController from "../controllers/readController.js";
+const router = express.Router();
 import { homeController, createController } from '../controllers/homeController.js';
 
-route.get('/', homeController);
-route.post('/', createController);
 
-route.get('/delete', function(req, res, next) {
-  res.render('delete', { title: 'About us',displayName: req.user?req.user.displayName:"" });
-});
+// create page (form)
+router.get('/', homeController);
 
-export default route;
+// handle the form submit
+router.post('/create', createController);
+
+// read page
+router.get('/read', readController);
+
+export default router;

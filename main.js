@@ -1,12 +1,12 @@
 import express from 'express';
 const app = express();
 const port = 4000;
-import route from './routes/routes.js';
+import router from './routes/routes.js';
 import path from 'path';
 import db from './db/db.js';
 import bodyParser from 'body-parser';
 //bodyparcer
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: true}));
 
 //database
 db()
@@ -17,7 +17,7 @@ app.use(express.static(path.join(process.cwd(), 'public')))
 app.set('view engine', 'ejs')
 app.set('views', './views')
 //routes
-app.use('/', route);
+app.use('/', router);
 
 app.listen(port, ()=>{
     console.log('Server is running at http://localhost:${port}')
