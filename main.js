@@ -9,7 +9,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import flash from 'connect-flash';
 import cors from 'cors';
-import { User } from './models/user.js/';
+import { User } from './models/user.js';
 
 // Set-up Express Session
 app.use(session({
