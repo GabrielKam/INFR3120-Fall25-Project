@@ -1,0 +1,55 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container my-3">
+    <div class="alert bg-warning">
+        <h4 class="text-center">All Records</h4>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if (records && records.length > 0) { %>
+
+                <% records.forEach(record => { %>
+                    <tr>
+                        <td><%= record.name %></td>
+                        <td><%= record.city %></td>
+                        <td><%= record.email %></td>
+                        <td><%= record.contact %></td>
+
+                        <td>
+                            <form action="/update/<%= record._id %>" method="GET">
+                                <button class="btn btn-primary">update</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form action="/delete/<%= record._id %>" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+
+            <% } else { %>
+                <tr>
+                    <td colspan="6" class="text-center">No records found</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('./partials/footer.ejs') %>

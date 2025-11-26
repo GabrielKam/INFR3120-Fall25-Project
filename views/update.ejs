@@ -1,39 +1,24 @@
 <%- include('./partials/header.ejs') %>
 
-<main class="container my-5">
+<div class="container my-4">
+  <h3 class="text-center">Update Account</h3>
 
-    <h2 class="text-center mb-4"><%= title%> Student Record</h2>
+  <form action="/update/<%= record._id %>" method="POST">
 
-    <!--Change to Method=Post to Update Later-->
-    <form action="">
-        <div class="my-3"> 
-            <label for="studentID" class="form-label">Student ID</label>
-            <input type="text" class="form-control" placeholder="Enter the Student ID to Update" required>
-        </div>
-        
-        <div class="my-3"> 
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Enter the New Name">
-        </div>
-        
-        <div class="my-3"> 
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" placeholder="Enter the New City">
-        </div>
-        
-        <div class="my-3"> 
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" placeholder="Enter the New Email">
-        </div>
-        
-        <div class="my-3"> 
-            <label for="number" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" placeholder="Enter the New Phone Number">
-        </div>
-        
-        <input type="submit" value="Update" class="btn btn-warning mt-3 w-100">
-    </form>
-    
-</main>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= record.name %>" class="form-control my-2">
+
+    <label>City</label>
+    <input type="text" name="city" value="<%= record.city %>" class="form-control my-2">
+
+    <label>Email</label>
+    <input type="text" name="email" value="<%= record.email %>" class="form-control my-2">
+
+    <label>Contact</label>
+    <input type="text" name="contact" value="<%= record.contact %>" class="form-control my-2">
+
+    <button class="btn btn-success mt-3">Update</button>
+  </form>
+</div>
 
 <%- include('./partials/footer.ejs') %>
