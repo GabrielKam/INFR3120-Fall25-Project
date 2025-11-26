@@ -4,7 +4,10 @@ import StudentModel from "../models/schema.js";
 export const updatePageController = async (req, res) => {
   try {
     const record = await StudentModel.findById(req.params.id);
-    res.render("update", { record });   // <-- renders update.ejs
+    res.render("update", { // <-- renders update.ejs
+      record,
+      displayName: req.user?req.user.displayName:"" 
+    });   
   } catch (err) {
     console.log(err);
     res.send("Error loading update page");

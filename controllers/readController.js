@@ -8,7 +8,10 @@ const readController = async (req, res) => {
         console.log("Records:", records);
 
 
-        res.render("read", { records }); //SENDS the DATA TO read.ejs
+        res.render("read", { //SENDS the DATA TO read.ejs
+            records,
+            displayName: req.user?req.user.displayName:""
+        }); 
     } catch (err) {
         console.log(err);
         res.send("Error loading records");

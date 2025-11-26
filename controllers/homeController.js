@@ -2,7 +2,9 @@ import Account from "../models/schema.js";   //  model file
 
 // Loads Creates form
 export const homeController = (req, res) => {
-    res.render("index");     // creates page (rename if needed)
+    res.render("index", {  // creates page (rename if needed)
+        displayName: req.user?req.user.displayName:""
+    });     
 };
 
 

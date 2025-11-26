@@ -4,6 +4,30 @@ const port = 4000;
 import router from './routes/routes.js';
 import path from 'path';
 import db from './db/db.js';
+import session from 'express-session';
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import flash from 'connect-flash';
+import cors from 'cors';
+import { User } from './models/user.js/';
+
+// Set-up Express Session
+app.use(session({
+  secret:"Somesecret",
+  saveUninitialized:false,
+  resave:false
+}))
+// initialize flash
+app.use(flash());
+// user authentication
+passport.use(User.createStrategy());
+// serialize and deserialize the user information
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// initialize the passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 import bodyParser from 'body-parser';
 //bodyparcer
 app.use(express.urlencoded({ extended: true}));

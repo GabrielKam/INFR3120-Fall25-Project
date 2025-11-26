@@ -21,28 +21,36 @@
 
         <tbody>
             <% if (records && records.length > 0) { %>
+                <% if(typeof displayName=='string' && displayName) { %>
+                    <% records.forEach(record => { %>
+                        <tr>
+                            <td><%= record.name %></td>
+                            <td><%= record.city %></td>
+                            <td><%= record.email %></td>
+                            <td><%= record.contact %></td>
 
-                <% records.forEach(record => { %>
-                    <tr>
-                        <td><%= record.name %></td>
-                        <td><%= record.city %></td>
-                        <td><%= record.email %></td>
-                        <td><%= record.contact %></td>
+                            <td>
+                                <form action="/update/<%= record._id %>" method="GET">
+                                    <button class="btn btn-primary">update</button>
+                                </form>
+                            </td>
 
-                        <td>
-                            <form action="/update/<%= record._id %>" method="GET">
-                                <button class="btn btn-primary">update</button>
-                            </form>
-                        </td>
-
-                        <td>
-                            <form action="/delete/<%= record._id %>" method="POST">
-                                <button class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <% }) %>
-
+                            <td>
+                                <form action="/delete/<%= record._id %>" method="POST">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                        <% records.forEach(record => { %>
+                        <tr>
+                            <td><%= record.name %></td>
+                            <td><%= record.city %></td>
+                            <td><%= record.email %></td>
+                            <td><%= record.contact %></td>
+                        </tr>
+                <% })} %>
             <% } else { %>
                 <tr>
                     <td colspan="6" class="text-center">No records found</td>
