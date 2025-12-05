@@ -1,0 +1,45 @@
+<div class="container my-3">
+  <div class="alert bg-warning">
+    <h4 class="text-center">All Records</h4>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th *ngIf="displayName">Edit</th>
+        <th *ngIf="displayName">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td>{{ record.name }}</td>
+        <td>{{ record.city }}</td>
+        <td>{{ record.email }}</td>
+        <td>{{ record.contact }}</td>
+
+        <td *ngIf="displayName">
+          <form [attr.action]="'/update/' + record._id" method="GET">
+            <button class="btn btn-primary">Update</button>
+          </form>
+        </td>
+
+        <td *ngIf="displayName">
+          <form [attr.action]="'/delete/' + record._id" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+
+      <tr *ngIf="records.length === 0">
+        <td colspan="6" class="text-center">No records found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
