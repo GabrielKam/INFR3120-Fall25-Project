@@ -16,7 +16,14 @@ app.use(session({
   secret:"Somesecret",
   saveUninitialized:false,
   resave:false
-}))
+}));
+
+app.use(cors({
+  origin:["https://infr3120-fall25-project-6zzx.onrender.com/",
+  ],
+  credentials: true
+}));
+
 // initialize flash
 app.use(flash());
 // user authentication
