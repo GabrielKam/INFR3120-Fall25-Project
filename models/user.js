@@ -30,6 +30,11 @@ const UserSchema = new mongoose.Schema({
         trim:true,
         required:'displayName is required'
     },
+    profilePicture: 
+    {
+        type: String,
+        default: "default.jpg"
+    },
     created:
     {
         type:Date,

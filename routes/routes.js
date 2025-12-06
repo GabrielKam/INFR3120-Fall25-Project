@@ -6,6 +6,8 @@ import { homeController, createController } from "../controllers/homeController.
 import passport from 'passport';
 import { User } from '../models/user.js'
 
+import { upload } from '../middleware/upload.js'
+
 const router = express.Router();
 
 router.get("/", homeController);
@@ -24,6 +26,23 @@ router.post("/delete/:id", deleteController);
 router.get('/register', function(req, res, next) {
   res.render('auth/register', { title: 'Register' });
 });*/
+// Profile Page
+router.get('/profile', function(req, res) {
+ if (!req.user) return res.redirect('/login');
+ res.render('profile', {
+ user: req.user,
+ displayName: req.user.displayName
+ });
+});
+// Upload Profile Picture
+router.post('/upload-profile', upload.single('profilePic'), async function(req, res) {
+ if (!req.user) return res.redirect('/login');
+ await User.findByIdAndUpdate(req.user._id, {
+ profilePicture: req.file.filename
+ });
+ res.redirect('/profile');
+});
+
 
 // Get method for login
 router.get('/login', function(req,res,next){

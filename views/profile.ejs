@@ -1,0 +1,27 @@
+<%- include('./partials/header.ejs') %>
+<div class="container mt-4">
+ <div class="card p-4 shadow">
+ <h3 class="mb-3">Your Profile</h3>
+ <div class="row">
+ <div class="col-md-4 text-center">
+ <img src="/uploads/<%= user.profilePicture %>"
+ class="img-fluid rounded-circle border"
+ style="width: 180px; height: 180px; object-fit: cover;">
+ </div>
+ <div class="col-md-8">
+ <h4><%= user.displayName %></h4>
+ <p><strong>Email:</strong> <%= user.email %></p>
+ <p><strong>Username:</strong> <%= user.username %></p>
+ <hr>
+ <h5>Update Profile Picture</h5>
+ <form action="/upload-profile" method="POST"
+enctype="multipart/form-data">
+ <input type="file" name="profilePic" accept="image/*"
+class="form-control mb-2" required>
+ <button class="btn btn-primary">Upload</button>
+ </form>
+ </div>
+ </div>
+ </div>
+</div>
+<%- include('./partials/footer.ejs') %>

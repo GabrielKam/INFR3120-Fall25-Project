@@ -20,6 +20,11 @@
           <a class="nav-link active" aria-current="page" href="/read">Read</a>
         </li>
         <% if(typeof displayName=='string' && displayName) { %>
+            <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+            </li>
+        <% } %>
+        <% if(typeof displayName=='string' && displayName) { %>
           <li class="navbar-text">
             <i class="fas fa-lg fa-user"></i>
             Welcome, <%= displayName %>
